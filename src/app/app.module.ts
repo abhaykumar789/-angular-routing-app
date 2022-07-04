@@ -8,6 +8,8 @@ import { ServicesComponent } from './services/services.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {FormsModule} from '@angular/forms';
+import { CreateAddGuardService } from './create-app-can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,9 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule
   ],
-  providers: [],
+  providers: [CreateAddGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

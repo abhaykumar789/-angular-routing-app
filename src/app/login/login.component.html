@@ -1,3 +1,32 @@
-<div class="login1">
-    <h2>INSIDE THE LOGIN COMPONENT</h2>
+<div class="global1">
+
+  <h2>LOGIN FORM</h2>
+  <hr />
+  <form #myform="ngForm">
+    <div class="form-group">
+      <label for="uname">UserName</label>
+      <input type="text" ngModel #fname="ngModel" name="username" 
+      id="uname" class="form-control" required="required" minlength="6" maxlength="12">
+      <div *ngIf="fname.touched && fname.invalid && fname.errors.required" class="alert alert-danger">
+        *UserName is required
+      </div>
+      <div *ngIf="fname.touched && fname.invalid && fname.errors.minlength" class="alert alert-danger">
+            *UserName should  have minimum 6 characters  
+      </div>
+          
+    </div>
+    <div class="form-group">
+      <label for="pwd">PASSWORD</label>
+      <input type="password" ngModel #pwd="ngModel" name="password" id="pwd" class="form-control" required="required">
+    </div>
+    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors.required" class="alert alert-danger">
+      *Password is required
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary" (click)="loginApp(myform)">Submit</button>
+  </form>
+
+
+  <hr />
+
 </div>
