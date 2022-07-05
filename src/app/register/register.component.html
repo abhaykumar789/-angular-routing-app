@@ -1,4 +1,32 @@
 <div class="global1">
-    <h2>REGISTER FORM</h2>
-    
+  <h2>REACTIVE FORM</h2>
+  <hr>
+  <form [formGroup]="myform">
+    <label for="name">UserName:</label>
+    <input type="text" id="name" formControlName="uname"><br />
+    <div *ngIf="myform.controls.uname.touched && myform.controls.uname.invalid 
+          && myform.controls.uname.errors.required" style="color:red;">*Enter UserName
+    </div>
+
+    <div *ngIf="myform.controls.uname.touched && myform.controls.uname.invalid 
+          && myform.controls.uname.errors.minlength" style="color:red;">*UserName Should be minimum 5 Characters
+    </div>
+
+    <label for="pd">Password:</label>
+    <input type="password" id="pd" formControlName="pwd"><br />
+    <div *ngIf="myform.controls.pwd.touched && myform.controls.pwd.invalid 
+        && myform.controls.pwd.errors.required" style="color:red;">*Password is required
+    </div>
+    <div *ngIf="myform.controls.pwd.touched && myform.controls.pwd.invalid 
+      && myform.controls.pwd.errors.pattern" style="color:red;">*Password Should Contain only alphabets
+    </div>
+    <br/>
+
+    <input type="button" class="btn btn-primary" [disabled]="!myform.valid" value="Submit" (click)="registerEmployee()">
+  </form>
+
+
+
+  <hr>
+
 </div>

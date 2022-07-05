@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,11 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
    username:string="";
    password:string="";
+   msg:string="";
+   flag:boolean=false;
    @ViewChild('myform') public myformref:NgForm
 
-  constructor() { 
+  constructor(private router:Router) { 
     
   }
 
@@ -23,7 +26,15 @@ export class LoginComponent implements OnInit {
     alert('working....')
     console.log(this.username);
     console.log(this.password);
-    console.log(ref.value.username);
-    console.log(ref.value.password);
+    if(ref.value.username=="admin1" && ref.value.password=="admin")
+    {
+         this.router.navigateByUrl('dashboard');
+    }else{
+      this.msg = "Invalid Username And Password";
+      this.flag=true;
+    }
+    //console.log(ref.value.username);
+    //console.log(ref.value.password);
+
   }
 }

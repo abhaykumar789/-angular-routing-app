@@ -25,7 +25,9 @@
     <br />
     <button type="submit" class="btn btn-primary" (click)="loginApp(myform)">Submit</button>
   </form>
+<br/>
 
+  <h3 *ngIf="flag" class="alert alert-danger">{{msg}}</h3>
 
   <hr />
 
